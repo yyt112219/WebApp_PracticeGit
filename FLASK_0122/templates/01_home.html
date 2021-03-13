@@ -1,0 +1,216 @@
+{% extends "00_base.html" %}
+{% from "_render_field.html" import render_field %}
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+    <!-- Hero section -->
+    <section id="infinite" class="text-white tm-font-big tm-parallax">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
+        <div class="container">
+          <div class="tm-next">
+              <a href="#infinite" class="navbar-brand">BDSE16 CLI Team II</a>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#infinite">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#whatwedo">About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#overview">Overview</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#statistics">Statistics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#contact">Analyze</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#testimonials">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            <h2 class="tm-hero-title">Smart Patent Analyzer</h2>
+            <p class="tm-hero-subtitle">
+              BDSE16 CLI Team II
+              <br>Explore Tech Worldwide
+            </p>
+        </div>
+      </div>
+
+      <div class="tm-next tm-intro-next">
+        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+        </a>
+      </div>
+    </section>
+    <section id="whatwedo" class="tm-section-pad-top">
+
+        <div class="container">
+
+              <div class="row tm-content-box"><!-- first row -->
+                  <div class="col-lg-12 col-xl-12">
+                        <div class="tm-intro-text-container">
+                          <h2 class="tm-text-primary mb-4 tm-section-title">About our data source</h2>
+                          <p class="mb-4 tm-intro-text">
+                            WIPO - World Intellectual Property Organization.Headquartered in Geneva, Switzerland, WIPO is one of the 15 specialized agencies of the United Nations (UN) which was created to promote and protect intellectual property (IP) across the world. Currently, WIPO has 193 member states and contains more than 90 million patent documents, which requires certain amount of knowledge in big data technology for analysis.<br>
+                            The International Patent Classification (IPC) system is an effective and worldwide tool for classifying and searching patent applications. It divides technology fields into 8 major sections (A-H) with several subdivisions and subgroups. The following IPC scheme table is provided for your reference.</p>
+                          <img src="http://0.0.0.0:5432/display/img/IPC_cover.png" style="width: 100%;"></img>
+                      </div>
+                      <div class="tm-intro-text-container">
+                          <h2 class="tm-text-primary mb-4 tm-section-title">What We Do</h2>
+                          <p class="mb-4 tm-intro-text">
+                            The main goal of this project is to create a detailed and multi-dimensional patents database using the data we crawled on WIPO official website. With the database we created, we trained several ML models and built a patent classification system. We also provided an interactive dashboard with some informative descriptive statistics graphs on our webpage, aiming to assist the users with their research on patents-related studies. Our project management framework is shown as below.</p>
+                      </div>
+                  </div>
+
+              </div><!-- first row -->
+
+              <div class="row tm-content-box"><!-- second row -->
+                  <img src="{{url_for('static',filename='img/intro.png')}}" alt="intro">
+
+          </div>
+        </div>
+      </section>
+      <section id="overview" class="tm-section-pad-top">
+        <div class="container" id="overview_section">
+
+              <div class="row tm-content-box" id="overview"><!-- second row -->
+          		<div class="col-lg-1" id="overview">
+                      <!-- <i class="far fa-3x fa-chart-bar text-center tm-icon"></i> -->
+                  <div class="row tm-content-box" id="overview"><!-- first row -->
+                    <h2 class="tm-text-primary mb-4 tm-section-title">Overview</h2>
+                    <div id="overview_section" style="margin: 0 auto;">                
+                      {% include "year_ipc.html" %}
+                      {% include "map2.html" %}
+                      {% include "TreeMap2.html" %}
+                    </div>
+
+                  </div>
+          		</div><!-- first row -->
+
+              </div>
+        </div>
+      </section>
+
+    <section id="statistics" class="tm-section-pad-top" >
+      <div class="container">
+
+            <div class="row tm-content-box"><!-- second row -->
+        		<div class="col-lg-1">
+                    <!-- <i class="far fa-3x fa-chart-bar text-center tm-icon"></i> -->
+                <div class="row tm-content-box" id="bokehplot"><!-- first row -->
+                  <h2 class="tm-text-primary mb-4 tm-section-title">Statistics</h2>
+                  <div id="plot_section"><div class="bk-root" id="ipcVis" data-root-id="1237" style="margin: 0 auto;"></div>{% include "A_Finish.html" %}</div>
+                  
+
+                </div>
+        		</div><!-- first row -->
+
+            </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="tm-section-pad-top tm-parallax-2" style="background-color:rgb(4, 1, 168)">
+
+      <!--div class="container tm-container-contact" style="background-color:rgb(221, 0, 0)"-->
+      <div style="background-color:rgb(221, 0, 0)">
+        <div class="row" style="background-color:rgb(255, 255, 255)">
+
+            <div class="text-center col-12" >
+                <h2 class="tm-section-title mb-4" style="color: black">Analyze</h2>
+                <p class="mb-5" style="color: black">
+                  Fill in your abstract below. Then we will provide a prediction of IPC classification.
+                </p>
+                <div class="text-center col-12">
+
+                  {% include "Sunburst.html" %}
+                </div>
+            </div>
+            
+            </div>
+
+
+
+        </div><!-- row ending -->
+
+    </section>
+
+
+    
+
+    <section id="testimonials" class="tm-section-pad-top tm-parallax-2">
+      <div class="container tm-testimonials-content">
+        <div class="row">
+          <div class="col-lg-12 tm-content-box">
+            <h2 class="text-white text-center mb-4 tm-section-title">About Us</h2>
+            <p class="mx-auto tm-section-desc text-center">
+                BDSE16 Team II members
+              </p>
+            <div class="mx-auto tm-gallery-container tm-gallery-container-2">
+              <div class="tm-testimonials-carousel">
+                <figure class="tm-testimonial-item">
+                  <img src="http://0.0.0.0:5432/display/img/王昱.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Team Leader.<br> Testimonial section comes with carousel items. You can use Infinite Loop HTML CSS template for your websites.</blockquote>
+                  <figcaption>王  昱</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="http://0.0.0.0:5432/display/img/王嘉宏.png" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Data Manager.<br>Testimonial section comes with carousel items. You can use Infinite Loop HTML CSS template for your websites.</blockquote>
+                  <figcaption>王嘉宏</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="http://0.0.0.0:5432/display/img/顧芠菱.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Data Scientist.<br>finibus ligula nec tortor convallis tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus.</blockquote>
+                  <figcaption>顧芠菱</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="http://0.0.0.0:5432/display/img/曾昱璇.png" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Data Analyst.<br>Curabitur rutrum pharetra lobortis. Pellentesque vehicula, velit quis eleifend fermentum, erat arcu aliquet neque.</blockquote>
+                  <figcaption>曾昱璇</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="http://0.0.0.0:5432/display/img/王予欣.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Data Analyst.<br>Integer sit amet risus et erat imperdiet finibus. Nam lacus nunc, vulputate id ex eget, euismod auctor augue.</blockquote>
+                  <figcaption>王予欣</figcaption>
+                </figure>
+                <figure class="tm-testimonial-item">
+                  <img src="http://0.0.0.0:5432/display/img/楊雅婷.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Data Analyst.<br>Integer sit amet risus et erat imperdiet finibus. Nam lacus nunc, vulputate id ex eget, euismod auctor augue.</blockquote>
+                  <figcaption>楊雅婷</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tm-bg-overlay"></div>
+
+{###############################}
+
+
+      {% endblock %}
+      {% block footer %}
+      {{ super() }}
+    </section>
+      {% endblock %}

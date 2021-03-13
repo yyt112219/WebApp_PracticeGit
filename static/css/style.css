@@ -1,0 +1,80 @@
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: 10px 0px;
+}
+p,a,input,label,textarea,span,ul,li{
+  font-family: 'Noto Serif TC', serif;
+}
+img{
+  max-width: 100%;/* Keep img in the page with different width.*/
+}
+header nav img{
+  width:70px;
+}
+header li{
+  margin: 0 20px;
+}
+#home .jumbotron{
+  height:80vh;
+  padding: inherit;
+}
+#home .container{/*Verically center div*/
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.btn{
+    background: steelblue;
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 20rem;
+}
+#profile{
+  padding: 60px 0px;
+}
+#profile img{
+  width: 200px;
+  border-radius: 100%;
+  padding-bottom: 30px;
+}
+#profile h1{
+  text-align: center;
+  padding: 60px 0px;
+}
+#profile h5{
+  text-align: center;
+}
+#profile p{
+  text-align: justify;
+}
+#projects h1{
+  text-align: center;
+  padding: 60px 0px;
+}
+#projects span{
+  font-size: .9rem;
+  background: rgba(70,130,180,0.3);
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+#projects .card{
+  border-radius: 10px;
+}
+#projects .btn{
+  padding: .25rem .5rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 20rem;
+}
+#contact h1{
+  text-align: center;
+  padding: 60px 0px;
+}
+
+footer img{
+  width:70px;
+}

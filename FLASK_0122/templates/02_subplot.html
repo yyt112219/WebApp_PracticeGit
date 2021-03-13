@@ -1,0 +1,10 @@
+{% block subplot %}
+<form method="post" action="">
+  {{ form_plot.selects_class(**{"onchange":"this.form.submit()"}) }}
+  {% if selects_class=='A' %}
+    {% include "plot_class_A.html" %}
+  {% else %}
+    {% include "plot_class_B.html" %}
+  {% endif %}
+</form>
+{% endblock %}

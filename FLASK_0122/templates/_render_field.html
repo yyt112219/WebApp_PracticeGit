@@ -1,0 +1,18 @@
+{% macro render_field(field) %}
+<div class="col-sm-12 col-md-6">
+  <form method="post" action="/">
+  {{ field(class_='tm-input', **kwargs)|safe }}
+<ul>
+{% for error in field.errors %}
+    <li style="color:red;">{{ error }}</li>
+{% endfor %}
+</ul>
+{% endmacro %}
+<div class="col-sm-12 col-md-6">
+  <form method="post" action="/">
+    <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
+    <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
+    <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
+    <button type="submit" class="btn tm-btn-submit">Submit</button>
+  </form>
+</div>
